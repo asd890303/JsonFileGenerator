@@ -1,0 +1,27 @@
+{
+    "id": 0,
+    "imgUrl": "https://d.ecimg.tw/items/DRAH89A9009I2FF/000001_1552011090.jpg",
+    "Updated": "2019/04/25 11:23:14",
+    "type": "SSD",
+
+    "itemList": [{
+        "id": 0,
+        "name": "美光Micron Crucial MX500 1TB M.2 2280 SATAⅢ 固態硬碟",
+        "url": "https://24h.pchome.com.tw/prod/DRAH89-A9009I2FF",
+        "updated": "2019/04/24 16:04:27",
+        "content": "美光 Micron Crucial P1 1TB M.2 2280 PCIe SSD固態硬碟/(五年保)",
+        "imgUrl": "https://d.ecimg.tw/items/DRAH89A9009I2FF/000001_1552011090.jpg",
+        "price": "4499",
+        "site": "24pchome"
+    }, {
+        "id": 1,
+        "name": "美光 Crucial MX500 1TB/M.2 SATA 2280/讀:560M/寫:510M/64層3D TLC/五年保固*捷元代理商公司貨*",
+        "url": "https://www.sinya.com.tw/prod/120054",
+        "updated": "2018/11/19 16:04:27",
+        "content": "test",
+        "imgUrl": "https://www.sinya.com.tw/upload/prod/120054.jpg",
+        "price": "5499",
+        "site": "sinya"
+    }]
+
+}

@@ -1,0 +1,35 @@
+{
+  "name": "react-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "full-stack",
+  "license": "ISC",
+  "author": "",
+  "scripts": {
+    "start": "pm2 start server/server.js --watch",
+    "wp": "webpack -wd",
+    "build": "webpack --mode production -wd"
+  },
+  "dependencies": {
+    "@types/react": "^16.8.6",
+    "@types/react-dom": "^16.8.2",
+    "axios": "^0.18.0",
+    "classnames": "^2.2.6",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mobx": "^5.9.0",
+    "mobx-react": "^5.4.3",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-loading": "^2.0.3",
+    "react-router": "^4.3.1"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "source-map-loader": "^0.2.4",
+    "typescript": "^3.3.3333",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
+  }
+}

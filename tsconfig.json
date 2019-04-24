@@ -1,0 +1,35 @@
+{
+    "compilerOptions": {
+        "noEmitOnError": true,
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "target": "es6",
+        "lib": [
+            "es7",
+            "es5",
+            "es2015",
+            "dom",
+        ],
+        // "allowJs": true,
+        "removeComments": true,
+        "allowSyntheticDefaultImports": false,
+        "jsx": "react",
+        "baseUrl": "./",
+        "paths": {
+            "components/*": [
+                "src/*"
+            ],
+        }
+    }
+    // "include": [
+    //     "./src/**/*"
+    // ],
+    // "files": [
+    //     "./src/components/index.tsx"
+    // ],
+    // "exclude": [
+    //     "node_modules"
+    // ]
+}
