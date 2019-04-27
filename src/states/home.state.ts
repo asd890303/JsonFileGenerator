@@ -30,7 +30,7 @@ export default class HomeState extends BaseState {
 
     @action.bound
     handleClick() {
-        this.msg = "working..."
+        this.msg = "in progress..."
         this.getJsonFile(this.targetURL);
     }
 }

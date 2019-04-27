@@ -31,9 +31,9 @@ export default class Home extends React.Component<any, any> {
                     {this.props.store.msg}
                 </div>
                 <hr />
-                <p>
+                {/* <p>
                     target: {this.props.store.targetURL}
-                </p>
+                </p> */}
                 <button onClick={this.handleClick}>
                     start
                </button>
