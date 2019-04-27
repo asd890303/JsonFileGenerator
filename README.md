@@ -3,12 +3,14 @@
 <h3>Init</h3>
 <ul>
     <li>
-        ```sh
-        $ yarn install
-        ```
+        
+```sh
+$ yarn install
+```
     </li>
     <li> 
-    ```sh
+    
+```sh
     $ npm run start
-    ```
+```
 </ul>
