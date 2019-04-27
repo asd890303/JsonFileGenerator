@@ -94,7 +94,6 @@ app.post('/start', function (req, res, next) {
                             'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1'
                         },
                     }, function (error, response, body) {
-                        console.log(body);
                         if (response && response.statusCode === 200) {
                             let file = "./output/result.json";
                             let filePath = path.resolve(__dirname, file);
@@ -112,8 +111,6 @@ app.post('/start', function (req, res, next) {
             })
         }
     })
-
-
 });
 
 

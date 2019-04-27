@@ -1,4 +1,0 @@
-
-interface AppProps {
-    test: number
-}
