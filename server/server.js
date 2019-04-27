@@ -24,9 +24,6 @@ app.get('/', (req, res) => {
 });
 
 app.post('/start', function (req, res, next) {
-    // console.log(req.query);
-    // console.log(req.body);
-
     // Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
     // Accept-Encoding: gzip, deflate, br
     // Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7
@@ -36,7 +33,6 @@ app.post('/start', function (req, res, next) {
     // Pragma: no-cache
     // Upgrade-Insecure-Requests: 1
     // User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1
-
 
     let site = 'https://f2e-test.herokuapp.com';
     let loginURL = 'https://f2e-test.herokuapp.com/login';
@@ -112,7 +108,6 @@ app.post('/start', function (req, res, next) {
         }
     })
 });
-
 
 app.listen(config.port, function listenHandler() {
     console.info(`Running on ${config.port}`);
