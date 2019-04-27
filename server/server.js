@@ -45,28 +45,28 @@ app.post('/start', function (req, res, next) {
     let user = 'f2e-candidate';
     let pwd = 'P@ssw0rd'
 
-    let url = 'https://f2e-test.herokuapp.com/api/products?offset=0&limit=1000';
     let auth = '';
 
+    //1. Auth get csrf,
     request({
         url: loginURL,
-        // json: true
     }, function (error, response, body) {
         if (response && response.statusCode === 200) {
             const $ = cheerio.load(response.body);
 
             auth = $('input[name="csrf"]')[0].attribs.value;
             console.log(auth);
-            querystring
             let formData = {
                 'username': user,
                 'password': pwd,
                 'csrf': auth
             }
 
+            //2. Login: username,password, csrf value
             request({
                 method: 'POST',
                 url: loginAPI,
+                body: querystring.stringify(formData),
                 headers: {
                     'Referer': 'https://f2e-test.herokuapp.com/login',
                     'Host': 'f2e-test.herokuapp.com',
@@ -74,20 +74,32 @@ app.post('/start', function (req, res, next) {
                     'Connection': 'keep-alive',
                     'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1'
                 },
-                data: querystring.stringify(formData)
             }, function (error, response, body) {
-                console.log(response);
-                if (response && response.statusCode === 200) {
+                console.log("set-cookie");
+                console.log(response.headers["set-cookie"]);
+                //3. Get login success response
+                if (response && response.statusCode === 302) {
+                    res.header["set-cookie"] = response.headers["set-cookie"];
 
+                    //4. Get Json Data
                     request({
                         url: dataAPI,
-                        // json: true
+                        body: querystring.stringify(formData),
+                        headers: {
+                            'Referer': 'https://f2e-test.herokuapp.com/login',
+                            'Host': 'f2e-test.herokuapp.com',
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'Cookie': response.headers["set-cookie"],
+                            'Connection': 'keep-alive',
+                            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1'
+                        },
                     }, function (error, response, body) {
+                        console.log(body);
                         if (response && response.statusCode === 200) {
                             let file = "./output/result.json";
-                            filePath = path.resolve(__dirname, file);
+                            let filePath = path.resolve(__dirname, file);
 
-                            fs.writeFile(filePath, JSON.stringify(body), (err) => {
+                            fs.writeFile(filePath, JSON.stringify(JSON.parse(body).data, null, 2), (err) => {
                                 if (err) throw err;
                             });
 
@@ -96,55 +108,15 @@ app.post('/start', function (req, res, next) {
                             res.send(error);
                         }
                     })
-
-
-                    // res.send(response);
-
                 }
             })
-
-            res.send(auth);
-
-        } else if (err) {
-            if (err) throw err;
         }
     })
 
 
 });
 
-// app.get('/getData', function (req, res) {
-//     let data = {};
-//     let filePath = "";
-//     const query = req.query;
-
-//     let file = "./data/d" + (query && query.id ? query.id : "1") + ".json";
-//     filePath = path.resolve(__dirname, file);
-//     // query.page
-//     // query.index
-
-//     data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-//     res.setHeader('Content-Type', 'application/json');
-//     res.send(data);
-// });
 
 app.listen(config.port, function listenHandler() {
     console.info(`Running on ${config.port}`);
 });
-
-
-// 'use strict';
-// var path = require('path');
-// var express = require('express');
-
-// var app = express();
-
-// var staticPath = path.join(__dirname, '/');
-// app.use(express.static(staticPath));
-
-// // Allows you to set port in the project properties.
-// app.set('port', process.env.PORT || 3000);
-
-// var server = app.listen(app.get('port'), function() {
-//     console.log('listening');
-// });
