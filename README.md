@@ -3,9 +3,16 @@
 <h3>Init</h3>
         
 ```sh
-$ yarn install
+$ npm install
 ```
- 
+```sh
+$ npm install pm2 -g
+```
+```sh
+$ npm run wp
+```
+
+
     
 ```sh
 $ npm run start
