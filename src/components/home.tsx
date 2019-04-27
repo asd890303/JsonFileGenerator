@@ -21,14 +21,22 @@ export default class Home extends React.Component<any, any> {
     }
 
     componentDidMount = () => {
-        this.props.store.initHomePage();
     }
 
     public render() {
 
         return (
             <React.Fragment>
-                {/* TODO */}
+                <div>
+                    {this.props.store.msg}
+                </div>
+                <hr />
+                <p>
+                    target: {this.props.store.targetURL}
+                </p>
+                <button onClick={this.handleClick}>
+                    start
+               </button>
             </React.Fragment>
         );
     }
